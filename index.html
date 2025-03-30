@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proben-App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: black;
+      color: yellow;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    select, button {
+      font-size: 1.2rem;
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+    }
+    button {
+      background-color: yellow;
+      color: black;
+      cursor: pointer;
+    }
+    #song {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      max-width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎸 Proben-App</h1>
+  <label for="set">Set auswählen:</label>
+  <select id="set">
+    <option value="Alle">Alle Sets</option>
+    <option value="Set 0">Set 0</option>
+    <option value="Set 1">Set 1</option>
+    <option value="Set 2">Set 2</option>
+    <option value="Set 3">Set 3</option>
+    <option value="Zugabe">Zugabe</option>
+  </select>
+  <br />
+  <button onclick="pickSong()">🎲 Zufall wählen</button>
+  <div id="song">Wähle ein Set und drücke auf den Button 🎶</div>
+
+  <script>
+    const songs = [
+      { title: "Talking 'bout a Revolution – Tracy Chapman", set: "Set 0" },
+      { title: "This Is the Life – Amy Macdonald", set: "Set 0" },
+      { title: "Mr. Rock & Roll – Amy Macdonald", set: "Set 0" },
+      { title: "Let Me Entertain You – Robbie Williams", set: "Set 1" },
+      { title: "Westerland – Die Ärzte", set: "Set 1" },
+      { title: "Entre Dos Tierras – Héroes del Silencio", set: "Set 2" },
+      { title: "Bohemian Like You – Dandy Warhols", set: "Set 2" },
+      { title: "Born to Be Wild – Steppenwolf", set: "Set 3" },
+      { title: "Smells Like Teen Spirit – Nirvana", set: "Set 3" },
+      { title: "Trouble – Pink", set: "Zugabe" },
+      { title: "Hymn – Barclay James Harvest", set: "Zugabe" }
+    ];
+
+    function pickSong() {
+      const selectedSet = document.getElementById("set").value;
+      const filtered = selectedSet === "Alle"
+        ? songs
+        : songs.filter(s => s.set === selectedSet);
+      const randomSong = filtered[Math.floor(Math.random() * filtered.length)];
+      document.getElementById("song").innerText = randomSong
+        ? randomSong.title
+        : "Kein Song gefunden";
+    }
+  </script>
+</body>
+</html>
