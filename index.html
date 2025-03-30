@@ -10,26 +10,22 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Rock Reloaded", sans-serif;
       background-color: black;
-      background-image: url('rockreloaded-logo-final.png');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 55%;
-      background-attachment: fixed;
       color: yellow;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       min-height: 100vh;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
+    }
+    .logo {
+      width: 160px;
+      margin-bottom: 20px;
     }
     h1 {
       font-size: 2.4rem;
       margin-bottom: 0.3em;
-      background: black;
-      padding: 0.2em 0.6em;
-      border-radius: 10px;
     }
     label {
       font-weight: bold;
@@ -59,6 +55,7 @@
   </style>
 </head>
 <body>
+  <img src="rockreloaded-logo-final.png" alt="Rock Reloaded Logo" class="logo" />
   <h1>🎸 Proben-App</h1>
   <label for="set">Set auswählen:</label>
   <select id="set">
